@@ -16,12 +16,6 @@ import jakarta.servlet.http.HttpServletRequest;
 @RestControllerAdvice
 public class GlobalExceptionHandler{
   
-  
-  @ExceptionHandler(Exception.class)
-  public ResponseEntity<String> handleAll(Exception ex) {
-    ex.printStackTrace();
-    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getClass().getName());
-  }
   @ExceptionHandler(ResourceNotFoundException.class)
   public ResponseEntity<ApiErrorDto> resourceNotFoundExceptionHandler(ResourceNotFoundException ex, HttpServletRequest request){
     
